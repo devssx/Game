@@ -1,11 +1,24 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+#include "reader/CreatorReader.h"
 
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()
 {
-    return HelloWorld::create();
+	creator::CreatorReader* reader = creator::CreatorReader::createWithFilename("creator/scenes/video/VideoPlayer.ccreator");
+
+	// will create the needed spritesheets + design resolution
+	reader->setup();
+
+	// get the scene graph
+	Scene* scene = reader->getSceneGraph();
+
+	// ...and use it
+	//Director::getInstance()->replaceScene(scene);
+
+	return scene;
+    // return HelloWorld::create();
 }
 
 // Print useful error message instead of segfaulting when files are not there.
