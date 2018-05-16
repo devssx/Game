@@ -23,7 +23,7 @@ static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
 static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 
-static cocos2d::Size designResolutionSize = smallResolutionSize;
+static cocos2d::Size designResolutionSize = mediumResolutionSize;
 
 
 AppDelegate::AppDelegate()
@@ -97,7 +97,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // create a scene. it's an autorelease object
-    auto scene = TerrainSimple::create();
+    auto scene = TerrainWalkThru::create();
 
     // run
     director->runWithScene(scene);

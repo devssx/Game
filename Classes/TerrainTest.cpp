@@ -16,10 +16,12 @@ TerrainSimple::TerrainSimple()
     _camera->setPosition3D(Vec3(-1,1.6f,4));
     addChild(_camera);
 
-    Terrain::DetailMap r("tarrain/dirt.jpg"),g("tarrain/Grass2.jpg"),b("tarrain/road.jpg"),a("tarrain/GreenSkin.jpg");
+	Terrain::DetailMap r("terrain/dirt.jpg");
+	Terrain::DetailMap g("terrain/Grass1.jpg");
+	Terrain::DetailMap b("terrain/road.jpg");
+	Terrain::DetailMap a("terrain/GreenSkin.jpg");
 
-    Terrain::TerrainData data("tarrain/heightmap16.jpg","tarrain/alphamap.png",r,g,b,a);
-
+	Terrain::TerrainData data("terrain/heightmap16.jpg", "terrain/alphamap.png", r, g, b, a);
     _terrain = Terrain::create(data,Terrain::CrackFixedType::SKIRT);
     _terrain->setLODDistance(3.2f,6.4f,9.6f);
     _terrain->setMaxDetailMapAmount(4);
@@ -74,11 +76,22 @@ TerrainWalkThru::TerrainWalkThru()
     _camera = Camera::createPerspective(60,visibleSize.width/visibleSize.height,0.1f,200);
     _camera->setCameraFlag(CameraFlag::USER1);
     addChild(_camera);
+	
+	/*Terrain::DetailMap r("terrain/dirt.jpg");
+	Terrain::DetailMap g("terrain/Grass2.jpg",10);
+	Terrain::DetailMap b("terrain/road.jpg");
+	Terrain::DetailMap a("terrain/GreenSkin.jpg",20);
 
-    Terrain::DetailMap r("tarrain/dirt.jpg"),g("tarrain/Grass2.jpg",10),b("tarrain/road.jpg"),a("tarrain/GreenSkin.jpg",20);
+    Terrain::TerrainData data("tarrain/heightmap16.jpg","tarrain/alphamap.png",r,g,b,a,Size(32,32),40.0f,2);*/
 
-    Terrain::TerrainData data("tarrain/heightmap16.jpg","tarrain/alphamap.png",r,g,b,a,Size(32,32),40.0f,2);
-    _terrain = Terrain::create(data,Terrain::CrackFixedType::SKIRT);
+	Terrain::DetailMap r("terrain/dirt.jpg");
+	Terrain::DetailMap g("terrain/Grass2.jpg", 10);
+	Terrain::DetailMap b("terrain/road.jpg");
+	Terrain::DetailMap a("terrain/GreenSkin.jpg", 20);
+
+	//Terrain::TerrainData data("terrain/heightmap16.jpg", "terrain/alphamap.png", r, g, b, a);
+	Terrain::TerrainData data("terrain/heightmap16.jpg", "terrain/alphamap.png", r, g, b, a, Size(32, 32), 40.0f, 2);
+	_terrain = Terrain::create(data,Terrain::CrackFixedType::SKIRT);
     _terrain->setMaxDetailMapAmount(4);
     _terrain->setCameraMask(2);
     _terrain->setDrawWire(false);
@@ -98,12 +111,12 @@ TerrainWalkThru::TerrainWalkThru()
     //_player->addChild(rootps);
     
     // add BillBoard for test blend
-    auto billboard = BillBoard::create("Images/btn-play-normal.png");
+    auto billboard = BillBoard::create("CloseSelected.png");
     billboard->setPosition3D(Vec3(0,180,0));
     billboard->setCameraMask((unsigned short)CameraFlag::USER1);
     _player->addChild(billboard);
 
-    auto animation = Animation3D::create("Sprite3DTest/girl.c3b","Take 001");
+    auto animation = Animation3D::create("models/girl.c3b","Take 001");
     if (animation)
     {
         auto animate = Animate3D::create(animation);
@@ -303,17 +316,24 @@ TerrainWithLightMap::TerrainWithLightMap()
     _camera->setPosition3D(Vec3(-1,1.6f,4));
     addChild(_camera);
     
-    Terrain::DetailMap r("tarrain/dirt.jpg"),g("tarrain/Grass2.jpg"),b("tarrain/road.jpg"),a("tarrain/GreenSkin.jpg");
+   /* Terrain::DetailMap r("tarrain/dirt.jpg"),g("tarrain/Grass2.jpg"),b("tarrain/road.jpg"),a("tarrain/GreenSkin.jpg");
     
-    Terrain::TerrainData data("tarrain/heightmap16.jpg","tarrain/alphamap.png",r,g,b,a);
+    Terrain::TerrainData data("tarrain/heightmap16.jpg","tarrain/alphamap.png",r,g,b,a);*/
     
+	Terrain::DetailMap r("terrain/dirt.jpg");
+	Terrain::DetailMap g("terrain/Grass2.jpg");
+	Terrain::DetailMap b("terrain/road.jpg");
+	Terrain::DetailMap a("terrain/GreenSkin.jpg");
+
+	Terrain::TerrainData data("terrain/heightmap16.jpg", "terrain/alphamap.png", r, g, b, a);
+
     _terrain = Terrain::create(data,Terrain::CrackFixedType::SKIRT);
     _terrain->setLODDistance(3.2f,6.4f,9.6f);
     _terrain->setMaxDetailMapAmount(4);
     addChild(_terrain);
     _terrain->setCameraMask(2);
     _terrain->setDrawWire(false);
-    _terrain->setLightMap("tarrain/Lightmap.png");
+	_terrain->setLightMap("terrain/Lightmap.png");
     auto listener = EventListenerTouchAllAtOnce::create();
     listener->onTouchesMoved = CC_CALLBACK_2(TerrainWithLightMap::onTouchesMoved, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
