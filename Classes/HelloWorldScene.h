@@ -9,6 +9,10 @@ public:
     static cocos2d::Scene* createScene();
 
     virtual bool init();
+
+	void createSkybox();
+
+	void CreateTerrain();
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);

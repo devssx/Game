@@ -89,7 +89,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>libcurl.lib;%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END)</AdditionalDependencies>
-      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <OutputFile>$(OutDir)DH5.exe</OutputFile>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -184,6 +184,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\reader\dragonbones\textures\TextureData.cpp" />
     <ClCompile Include="..\Classes\reader\ui\PageView.cpp" />
     <ClCompile Include="..\Classes\reader\ui\RichtextStringVisitor.cpp" />
+    <ClCompile Include="..\Classes\TerrainTest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +247,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\reader\Macros.h" />
     <ClInclude Include="..\Classes\reader\ui\PageView.h" />
     <ClInclude Include="..\Classes\reader\ui\RichtextStringVisitor.h" />
+    <ClInclude Include="..\Classes\TerrainTest.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

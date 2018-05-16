@@ -126,6 +126,9 @@
     <ClCompile Include="..\Classes\reader\CreatorReader.cpp">
       <Filter>src\reader</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\TerrainTest.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -307,6 +310,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\reader\Macros.h">
       <Filter>src\reader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TerrainTest.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
